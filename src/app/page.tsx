@@ -29,7 +29,7 @@ export default function WeddingPage() {
             <div className="hero-action" data-hero><InvitationButton/></div>
           </div>
           <div className="hero-visual" data-hero>
-            <div className="photo-frame"><div className="hero-photo"><Image src={wedding.photos.hero} alt="ภาพงานแต่งงานตัวอย่าง คู่บ่าวสาวในสวน" fill priority sizes="(max-width: 700px) 90vw, 45vw"/></div><span className="photo-script">you, me & forever.</span></div>
+            <div className="photo-frame"><div className="hero-photo"><Image src={wedding.photos.hero} alt="Totei และ Fah นั่งคู่กันบนเนินหญ้าหน้ากังหันลม" fill priority sizes="(max-width: 700px) 90vw, 45vw"/></div><span className="photo-script">you, me & forever.</span></div>
             <RibbonBow className="hero-bow"/>
             <div className="date-stamp"><Heart size={16}/><span>SAVE<br/>OUR DATE</span><small>{weddingDate.stamp}</small></div>
             <p className="visual-caption">THE BEGINNING OF OUR ALWAYS</p>

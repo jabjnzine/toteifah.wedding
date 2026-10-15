@@ -1,4 +1,4 @@
-// Couple nicknames are supplied by the user. Dates, stories, venue information and photos remain illustrative.
+// Couple nicknames and the hero photo are supplied by the user. Dates, stories, venue information and other photos remain illustrative.
 // Replace the remaining demo details before sharing with guests.
 export const wedding = {
   bride: "Totei",
@@ -17,10 +17,10 @@ export const wedding = {
   // Optional real collection URL, e.g. a Google Form. Empty uses a clearly labeled local demo.
   rsvpUrl: "",
   photos: {
-    hero: "https://images.unsplash.com/photo-1617202000199-15fab1b09935?auto=format&fit=crop&w=1400&q=85",
+    hero: "/photos/totei-fah-hero.jpg",
     story: "https://images.unsplash.com/photo-1654994088648-e18f010da116?auto=format&fit=crop&w=1000&q=85",
     gallery: [
-      { src: "https://images.unsplash.com/photo-1617202000199-15fab1b09935?auto=format&fit=crop&w=1200&q=85", alt: "ภาพตัวอย่างคู่บ่าวสาวในวันแต่งงาน" },
+      { src: "/photos/totei-fah-hero.jpg", alt: "Totei และ Fah นั่งคู่กันบนเนินหญ้าหน้ากังหันลม" },
       { src: "https://images.unsplash.com/photo-1654994088648-e18f010da116?auto=format&fit=crop&w=1200&q=85", alt: "ภาพตัวอย่างช่วงเวลาอบอุ่นของคู่รัก" },
       { src: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1200&q=85", alt: "ภาพตัวอย่างบรรยากาศงานแต่งงาน" },
       { src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&w=1200&q=85", alt: "ภาพตัวอย่างโต๊ะอาหารในงานฉลอง" },

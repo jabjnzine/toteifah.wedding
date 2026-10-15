@@ -70,7 +70,7 @@ p { line-height: 1.95; }
 .hero-visual { position: relative; max-width: 460px; width: 100%; justify-self: center; margin-top: 12px; }
 .photo-frame { padding: 12px 12px 21px; background: var(--cream); border-radius: 230px 230px 3px 3px; box-shadow: 10px 15px 36px #53667c15; transform: rotate(3deg); }
 .hero-photo { height: 478px; border-radius: 220px 220px 0 0; position: relative; overflow: hidden; }
-.hero-photo img { object-fit: cover; object-position: center 48%; transform: scale(1.1); }
+.hero-photo img { object-fit: cover; object-position: center 72%; transform: scale(1.1); }
 .photo-script { display: block; font-family: var(--font-serif); font-size: 34px; font-style: italic; text-align: center; padding-top: 14px; }
 .hero-bow { width: 182px; position: absolute; top: -64px; left: -52px; transform: rotate(-14deg); }
 .date-stamp { position: absolute; right: -32px; top: 35px; width: 102px; height: 124px; background: var(--wine); color: var(--cream); text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; transform: rotate(10deg); outline: 1px dashed #f9f6ef88; outline-offset: -7px; box-shadow: 3px 5px 10px #721c3520; }

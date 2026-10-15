@@ -22,7 +22,7 @@ Build เป็น static export ที่ `out/` สามารถโฮสต
 
 แก้ `src/lib/wedding.ts` สำหรับชื่อ วัน เวลา สถานที่ แผนที่ กำหนดการ รูปภาพ และลิงก์ RSVP วันที่ใช้เขตเวลา `+07:00` และควรแก้วันแสดงผลให้ตรงกัน
 
-รูปในตัวอย่างใช้ Unsplash และไม่ใช่ภาพคู่บ่าวสาวจริง เปลี่ยนเป็นภาพของคุณ โดยวางใน `public/photos/` และใส่ path `/photos/your-image.jpg` ใน config
+ภาพหลักและภาพแรกในแกลเลอรีใช้รูปที่ผู้ใช้ส่งมา (`public/photos/totei-fah-hero.jpg`) ส่วนภาพอื่นยังเป็นตัวอย่างจาก Unsplash เปลี่ยนรูปเพิ่มเติมได้โดยวางใน `public/photos/` และใส่ path `/photos/your-image.jpg` ใน config
 
 Photo credits: [d i e g o Authentic](https://unsplash.com/photos/KKvXIWSZnWs), [Alexander Mass](https://unsplash.com/photos/eDmxIBTVVBo), and the other illustrative event photographs on Unsplash.
 

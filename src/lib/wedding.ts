@@ -1,10 +1,10 @@
-// All names, dates, stories, venue information and photos below are illustrative demo content.
-// Replace these values with the couple's real wedding details before sharing with guests.
+// Couple nicknames are supplied by the user. Dates, stories, venue information and photos remain illustrative.
+// Replace the remaining demo details before sharing with guests.
 export const wedding = {
-  bride: "Anne",
-  groom: "Pop",
-  brideThai: "แอน",
-  groomThai: "ป๊อป",
+  bride: "Totei",
+  groom: "fah",
+  brideThai: "Totei",
+  groomThai: "fah",
   date: "2026-12-20T16:00:00+07:00",
   endDate: "2026-12-20T22:00:00+07:00",
   dateLabel: "20 December 2026",
@@ -13,7 +13,7 @@ export const wedding = {
   venueThai: "เดอะ กลาสเฮาส์ · กรุงเทพฯ",
   venueAddress: "สถานที่ตัวอย่างสำหรับแสดงรูปแบบการ์ดเชิญ",
   mapUrl: "https://www.google.com/maps/search/?api=1&query=The+Glass+House+Bangkok",
-  hashtag: "AnneAndPopForever",
+  hashtag: "ToteiAndFahForever",
   // Optional real collection URL, e.g. a Google Form. Empty uses a clearly labeled local demo.
   rsvpUrl: "",
   photos: {
@@ -32,6 +32,13 @@ export const wedding = {
     { time: "18:00", title: "Dinner & celebration", thai: "ร่วมรับประทานอาหารและฉลองมงคลสมรส", icon: "glass" },
     { time: "20:00", title: "Dance the night away", thai: "สนุกไปด้วยกันในอาฟเตอร์ปาร์ตี้", icon: "music" },
   ],
+};
+
+export const weddingIdentity = {
+  firstInitial: wedding.bride.charAt(0).toLowerCase(),
+  secondInitial: wedding.groom.charAt(0).toLowerCase(),
+  names: `${wedding.bride} & ${wedding.groom}`,
+  fileSlug: `${wedding.bride}-${wedding.groom}`.toLowerCase(),
 };
 
 const ceremony = new Date(wedding.date);

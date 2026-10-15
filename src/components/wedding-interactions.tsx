@@ -5,7 +5,7 @@ import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowDown, ArrowLeft, ArrowRight, CalendarPlus, Check, Heart, Mail, Menu, Music2, VolumeX, X } from "lucide-react";
-import { wedding, weddingDate } from "@/lib/wedding";
+import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 import { RibbonBow, TinyFlower } from "./ornaments";
 
 export function WeddingMotion() {
@@ -31,7 +31,7 @@ export function WeddingMotion() {
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
   return <header className="site-header">
-    <a className="wordmark" href="#home" aria-label="Anne and Pop หน้าแรก">a<span>&</span>p<span className="wordmark-dot">.</span></a>
+    <a className="wordmark" href="#home" aria-label={`${weddingIdentity.names} หน้าแรก`}>{weddingIdentity.firstInitial}<span>&</span>{weddingIdentity.secondInitial}<span className="wordmark-dot">.</span></a>
     <nav aria-label="เมนูหลัก" className={isOpen ? "main-nav is-open" : "main-nav"}>
       {[ ["Our story", "story"], ["The celebration", "celebration"], ["Our moments", "gallery"] ].map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setIsOpen(false)}>{label}</a>)}
       <a href="#rsvp" className="nav-rsvp" onClick={() => setIsOpen(false)}>RSVP <ArrowRight size={14} /></a>
@@ -98,7 +98,7 @@ export function InvitationButton() {
         <small className="demo-note block mt-6">การ์ดตัวอย่าง · ข้อมูลสมมติ</small>
       </div> : <div className="envelope-scene" ref={envelopeRef}>
         <p className="eyebrow">A LITTLE LETTER, JUST FOR YOU</p>
-        <div className="envelope"><div className="envelope-flap"/><button className="wax-seal" onClick={unseal} aria-label="เปิดซองการ์ดเชิญ">a&p</button><span className="envelope-name">with love, Anne & Pop</span></div>
+        <div className="envelope"><div className="envelope-flap"/><button className="wax-seal" onClick={unseal} aria-label="เปิดซองการ์ดเชิญ">{weddingIdentity.firstInitial}&{weddingIdentity.secondInitial}</button><span className="envelope-name">with love, {weddingIdentity.names}</span></div>
         <p className="mt-8 text-sm">แตะตราประทับ เพื่อเปิดความสุขของเรา</p>
       </div>}
     </Modal>}
@@ -109,9 +109,9 @@ export function CalendarButton() {
   function downloadCalendar() {
     const formatDate = (value: string) => new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const escape = (value: string) => value.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
-    const content = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//Anne and Pop//Wedding//TH", "BEGIN:VEVENT", "UID:anne-pop-wedding-20261220@example.com", `DTSTAMP:${formatDate(new Date().toISOString())}`, `DTSTART:${formatDate(wedding.date)}`, `DTEND:${formatDate(wedding.endDate)}`, `SUMMARY:${escape(`${wedding.bride} & ${wedding.groom} Wedding (Demo)`)}`, `LOCATION:${escape(wedding.venueThai)}`, "DESCRIPTION:การ์ดแต่งงานตัวอย่าง - ข้อมูลสมมติ", "END:VEVENT", "END:VCALENDAR", ""].join("\r\n");
+    const content = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${escape(weddingIdentity.names)}//Wedding//TH`, "BEGIN:VEVENT", "UID:anne-pop-wedding-20261220@example.com", `DTSTAMP:${formatDate(new Date().toISOString())}`, `DTSTART:${formatDate(wedding.date)}`, `DTEND:${formatDate(wedding.endDate)}`, `SUMMARY:${escape(`${wedding.bride} & ${wedding.groom} Wedding (Demo)`)}`, `LOCATION:${escape(wedding.venueThai)}`, "DESCRIPTION:การ์ดแต่งงานตัวอย่าง - ข้อมูลสมมติ", "END:VEVENT", "END:VCALENDAR", ""].join("\r\n");
     const url = URL.createObjectURL(new Blob([content], { type: "text/calendar;charset=utf-8" }));
-    const link = document.createElement("a"); link.href = url; link.download = "anne-pop-wedding.ics"; link.click();
+    const link = document.createElement("a"); link.href = url; link.download = `${weddingIdentity.fileSlug}-wedding.ics`; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
   }
   return <button className="text-link" onClick={downloadCalendar}><CalendarPlus size={16}/> บันทึกลงปฏิทิน <ArrowRight size={15}/></button>;

@@ -2,7 +2,7 @@ import Image from "next/image";
 import { ArrowDown, ArrowRight, Flower2, Heart, MapPin, Music2, Wine } from "lucide-react";
 import { FloralSprig, RibbonBow, TinyFlower } from "@/components/ornaments";
 import { CalendarButton, Countdown, Gallery, InvitationButton, MusicButton, Navigation, RsvpButton, WeddingMotion } from "@/components/wedding-interactions";
-import { wedding, weddingDate } from "@/lib/wedding";
+import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 
 function RingsIcon() {
   return <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" strokeWidth="1.3" aria-hidden="true"><circle cx="18" cy="28" r="11"/><circle cx="31" cy="28" r="11"/><path d="m12 12 6-7 6 7-6 6-6-6ZM25 12l6-7 6 7-6 6-6-6Z"/></svg>;
@@ -66,7 +66,7 @@ export default function WeddingPage() {
 
       <section className="rsvp-section" id="rsvp" aria-labelledby="rsvp-title"><FloralSprig className="rsvp-floral rsvp-floral-left"/><FloralSprig className="rsvp-floral rsvp-floral-right"/><div className="rsvp-copy" data-reveal><p className="eyebrow">OUR DAY IS BETTER WITH YOU IN IT</p><h2 id="rsvp-title">We saved you <em>a seat.</em></h2><p>ความสุขของเราจะสมบูรณ์ยิ่งขึ้น เมื่อมีคุณอยู่ด้วย<br/>บอกเราหน่อยนะ ว่าจะได้เจอกันไหม</p><RsvpButton/><p className="rsvp-note">RSVP ตัวอย่าง · ทดลองบันทึกคำตอบบนอุปกรณ์ของคุณ</p><div className="rsvp-divider"/><p className="hashtag">#{wedding.hashtag}</p><p className="hashtag-note">เก็บทุกความทรงจำดี ๆ ไว้ด้วยแฮชแท็กนี้</p></div></section>
     </main>
-    <footer className="site-footer"><a className="wordmark" href="#home" aria-label="กลับด้านบน">a<span>&</span>p.</a><p>With full hearts & so much love.<br/><span>{wedding.bride} & {wedding.groom} · {wedding.dateLabel}</span></p><div className="footer-note"><Heart size={13}/><span>การ์ดแต่งงานตัวอย่าง</span></div></footer>
+    <footer className="site-footer"><a className="wordmark" href="#home" aria-label="กลับด้านบน">{weddingIdentity.firstInitial}<span>&</span>{weddingIdentity.secondInitial}.</a><p>With full hearts & so much love.<br/><span>{wedding.bride} & {wedding.groom} · {wedding.dateLabel}</span></p><div className="footer-note"><Heart size={13}/><span>การ์ดแต่งงานตัวอย่าง</span></div></footer>
     <MusicButton/>
   </>;
 }

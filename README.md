@@ -1,4 +1,4 @@
-# Totei & fah — Wedding Invitation
+# Totei & Fah — Wedding Invitation
 
 เว็บการ์ดแต่งงานตัวอย่าง ใช้ Next.js App Router, TypeScript, Tailwind CSS v4 และ GSAP + ScrollTrigger โทน Wine Red / Powder Blue
 

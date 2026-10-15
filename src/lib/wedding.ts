@@ -2,9 +2,9 @@
 // Replace the remaining demo details before sharing with guests.
 export const wedding = {
   bride: "Totei",
-  groom: "fah",
+  groom: "Fah",
   brideThai: "Totei",
-  groomThai: "fah",
+  groomThai: "Fah",
   date: "2026-12-20T16:00:00+07:00",
   endDate: "2026-12-20T22:00:00+07:00",
   dateLabel: "20 December 2026",

@@ -1,6 +1,6 @@
 # Totei & Fah — Wedding Invitation
 
-เว็บการ์ดแต่งงานตัวอย่าง ใช้ Next.js App Router, TypeScript, Tailwind CSS v4 และ GSAP + ScrollTrigger โทน Wine Red / Powder Blue
+เว็บการ์ดแต่งงาน ใช้ Next.js App Router, TypeScript, Tailwind CSS v4 และ GSAP + ScrollTrigger โทน Wine Red / Powder Blue
 
 ## เริ่มใช้งาน
 
@@ -20,15 +20,19 @@ Build เป็น static export ที่ `out/` สามารถโฮสต
 
 ## เปลี่ยนรายละเอียดงาน
 
-แก้ `src/lib/wedding.ts` สำหรับชื่อ วัน เวลา สถานที่ แผนที่ กำหนดการ รูปภาพ และลิงก์ RSVP วันที่ใช้เขตเวลา `+07:00` และควรแก้วันแสดงผลให้ตรงกัน
+แก้ `src/lib/wedding.ts` สำหรับชื่อ ชื่อเต็ม ผู้ปกครอง วัน เวลา สถานที่ แผนที่ กำหนดการ รูปภาพ Dress code และลิงก์ RSVP วันที่ใช้เขตเวลา `+07:00` และควรแก้วันแสดงผลให้ตรงกัน
 
-ภาพหลักและภาพแรกในแกลเลอรีใช้รูปที่ผู้ใช้ส่งมา (`public/photos/totei-fah-hero.jpg`) ส่วนภาพอื่นยังเป็นตัวอย่างจาก Unsplash เปลี่ยนรูปเพิ่มเติมได้โดยวางใน `public/photos/` และใส่ path `/photos/your-image.jpg` ใน config
+ภาพหลักและภาพแรกในแกลเลอรีใช้รูปที่ผู้ใช้เลือก (`public/photos/totei-fah-hero.jpg`) ภาพอื่นดึงจากไฟล์การ์ด PDF ของผู้ใช้ โดยคัดเฉพาะภาพคู่จริงที่ปรากฏในการ์ด เปลี่ยนรูปเพิ่มเติมได้โดยวางใน `public/photos/` และใส่ path `/photos/your-image.jpg` ใน config
 
-Photo credits: [d i e g o Authentic](https://unsplash.com/photos/KKvXIWSZnWs), [Alexander Mass](https://unsplash.com/photos/eDmxIBTVVBo), and the other illustrative event photographs on Unsplash.
+รายละเอียดงานถอดจาก PDF สองหน้าที่ผู้ใช้ส่งเมื่อ 4 พฤศจิกายน 2569: เจ้าสาว นางสาวอรวรรณ เสดา (Fah), เจ้าบ่าว นายจำนงค์ เชื้อสร (Totei), วันเสาร์ที่ 20 มีนาคม 2570 ณ บ้านหนองประดิษฐ์ ตำบลโพธิ์กระสังข์ อำเภอขุนหาญ จังหวัดศรีสะเกษ
+
+กำหนดการ: 08:09 แห่ขันหมาก, 09:09 พิธีสู่ขอ, 10:09 พิธีรับไหว้ผูกข้อมือ, 11:30 รับประทานอาหาร ไม่ได้ระบุเวลาสิ้นสุดในต้นฉบับ จึงไม่สร้าง `DTEND` ในไฟล์ปฏิทิน
+
+ลิงก์แผนที่ถอดจาก QR โดยตรง: https://maps.app.goo.gl/9SxLfevWN7E1X4qt9 ภาพ QR แผนที่และยินดีออนไลน์เก็บไว้ใน `public/images/` ตามการ์ดต้นฉบับ ปุ่มยินดีออนไลน์แสดงและดาวน์โหลด QR เท่านั้น ไม่มีการทำธุรกรรมหรือเก็บข้อมูลการชำระเงิน
 
 เปลี่ยนข้อความเรื่องราวใน `src/app/page.tsx` และสีใน `src/app/globals.css` (`--wine`, `--blue`, `--cream`) ก่อนใช้จริง
 
-ตัวอย่างแสดงวันที่ 20 ธันวาคม 2569 ตั้งค่า metadata ใน `src/app/layout.tsx` ให้เป็นโดเมนจริงเมื่อย้าย hosting
+ชื่อที่แสดงหลักยังคงเรียง Totei & Fah ตามการปรับก่อนหน้า ส่วนเจ้าสาว/เจ้าบ่าวและผู้ปกครองในพิธีเรียงตามข้อมูลในการ์ด ตั้งค่า metadata ใน `src/app/layout.tsx` ให้เป็นโดเมนจริงเมื่อย้าย hosting
 
 ## ลูกเล่น
 

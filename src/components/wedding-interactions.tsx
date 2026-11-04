@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowLeft, ArrowRight, CalendarPlus, Check, Heart, Mail, Menu, Music2, VolumeX, X } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, CalendarPlus, Check, Download, Heart, Mail, Menu, Music2, VolumeX, X } from "lucide-react";
 import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 import { RibbonBow, TinyFlower } from "./ornaments";
 
@@ -89,13 +89,13 @@ export function InvitationButton() {
       {isUnsealed ? <div className="invitation-content">
         <RibbonBow className="invitation-bow"/>
         <p className="eyebrow">TOGETHER WITH OUR FAMILIES</p>
-        <h2>{wedding.bride} <em>&</em> {wedding.groom}</h2>
+        <h2>{weddingIdentity.firstName} <em>&</em> {weddingIdentity.secondName}</h2>
         <p>มีความยินดีขอเรียนเชิญคุณร่วมเป็นส่วนหนึ่ง<br/>ในวันสำคัญและการเริ่มต้นบทใหม่ของเรา</p>
+        <p className="invitation-full-names">{wedding.brideFullName}<br/>{wedding.groomFullName}</p>
         <TinyFlower className="tiny-flower mx-auto my-6"/>
         <p>{wedding.thaiDateLabel}<br/>เวลา {weddingDate.time} น. เป็นต้นไป</p>
-        <p className="mt-4">{wedding.venueThai}</p>
+        <p className="mt-4">{wedding.venueThai}<br/>{wedding.venueAddress}</p>
         <a href="#celebration" className="button button-wine mt-8" onClick={() => setIsOpen(false)}>ดูรายละเอียดงาน <ArrowDown size={16}/></a>
-        <small className="demo-note block mt-6">การ์ดตัวอย่าง · ข้อมูลสมมติ</small>
       </div> : <div className="envelope-scene" ref={envelopeRef}>
         <p className="eyebrow">A LITTLE LETTER, JUST FOR YOU</p>
         <div className="envelope"><div className="envelope-flap"/><button className="wax-seal" onClick={unseal} aria-label="เปิดซองการ์ดเชิญ">{weddingIdentity.firstInitial}&{weddingIdentity.secondInitial}</button><span className="envelope-name">with love, {weddingIdentity.names}</span></div>
@@ -109,7 +109,27 @@ export function CalendarButton() {
   function downloadCalendar() {
     const formatDate = (value: string) => new Date(value).toISOString().replace(/[-:]/g, "").replace(/\.\d{3}/, "");
     const escape = (value: string) => value.replace(/\\/g, "\\\\").replace(/\n/g, "\\n").replace(/;/g, "\\;").replace(/,/g, "\\,");
-    const content = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${escape(weddingIdentity.names)}//Wedding//TH`, "BEGIN:VEVENT", "UID:anne-pop-wedding-20261220@example.com", `DTSTAMP:${formatDate(new Date().toISOString())}`, `DTSTART:${formatDate(wedding.date)}`, `DTEND:${formatDate(wedding.endDate)}`, `SUMMARY:${escape(`${wedding.bride} & ${wedding.groom} Wedding (Demo)`)}`, `LOCATION:${escape(wedding.venueThai)}`, "DESCRIPTION:การ์ดแต่งงานตัวอย่าง - ข้อมูลสมมติ", "END:VEVENT", "END:VCALENDAR", ""].join("\r\n");
+    // iCalendar folds lines at 75 UTF-8 octets, without splitting Thai characters.
+    function foldLine(line: string) {
+      const encoder = new TextEncoder();
+      const folded: string[] = [];
+      let current = "";
+      let bytes = 0;
+      for (const character of line) {
+        const size = encoder.encode(character).length;
+        if (bytes + size > 75) { folded.push(current); current = " "; bytes = 1; }
+        current += character; bytes += size;
+      }
+      folded.push(current);
+      return folded.join("\r\n");
+    }
+    const description = [
+      `พิธีมงคลสมรสระหว่าง ${wedding.brideFullName} และ ${wedding.groomFullName}`,
+      wedding.thaiDateLabel,
+      ...wedding.schedule.map(event => `${event.time} น. ${event.thai}`),
+      `แผนที่: ${wedding.mapUrl}`,
+    ].join("\n");
+    const content = ["BEGIN:VCALENDAR", "VERSION:2.0", `PRODID:-//${escape(weddingIdentity.names)}//Wedding//TH`, "BEGIN:VEVENT", "UID:anne-pop-wedding-20261220@example.com", `DTSTAMP:${formatDate(new Date().toISOString())}`, `DTSTART:${formatDate(wedding.date)}`, `SUMMARY:${escape(`${weddingIdentity.names} Wedding`)}`, `LOCATION:${escape(`${wedding.venueThai} ${wedding.venueAddress}`)}`, `DESCRIPTION:${escape(description)}`, "END:VEVENT", "END:VCALENDAR", ""].map(foldLine).join("\r\n");
     const url = URL.createObjectURL(new Blob([content], { type: "text/calendar;charset=utf-8" }));
     const link = document.createElement("a"); link.href = url; link.download = `${weddingIdentity.fileSlug}-wedding.ics`; link.click();
     setTimeout(() => URL.revokeObjectURL(url), 1000);
@@ -128,11 +148,25 @@ export function Gallery() {
         <span className="gallery-caption"><span>0{i + 1} / A moment to keep</span><ArrowRight size={20}/></span>
       </button>)}
     </div>
-    {selected !== null && <Modal label="แกลเลอรีภาพตัวอย่าง" className="gallery-modal" onClose={() => setSelected(null)}>
+    {selected !== null && <Modal label="แกลเลอรีภาพของ Totei และ Fah" className="gallery-modal" onClose={() => setSelected(null)}>
       <div className="lightbox" onKeyDown={e => { if(e.key === "ArrowRight") move(1); if(e.key === "ArrowLeft") move(-1); }}>
         <Image src={photos[selected].src} alt={photos[selected].alt} width={1200} height={1000} className="lightbox-image" sizes="90vw"/>
         <div className="lightbox-controls"><button className="icon-button" onClick={() => move(-1)} aria-label="รูปก่อนหน้า"><ArrowLeft/></button><p aria-live="polite">{selected + 1} / {photos.length}</p><button className="icon-button" onClick={() => move(1)} aria-label="รูปถัดไป"><ArrowRight/></button></div>
       </div>
+    </Modal>}
+  </>;
+}
+
+export function CongratulationsButton() {
+  const [isOpen, setIsOpen] = useState(false);
+  return <>
+    <button className="button button-outline" onClick={() => setIsOpen(true)}><Heart size={16}/> ร่วมยินดีออนไลน์</button>
+    {isOpen && <Modal label="QR ร่วมยินดีออนไลน์จากการ์ดเชิญ" className="congratulations-modal" onClose={() => setIsOpen(false)}>
+      <p className="eyebrow">WITH LOVE & GRATITUDE</p>
+      <h2>ร่วมยินดีออนไลน์</h2>
+      <p>ขอบคุณสำหรับความรักและความปรารถนาดี<br/>ที่มอบให้เราทั้งสองคน</p>
+      <Image src={wedding.congratulationsQr} alt="QR ยินดีออนไลน์ตามการ์ดเชิญของ Totei และ Fah" width={260} height={268} className="congratulations-qr"/>
+      <a className="button button-wine" href={wedding.congratulationsQr} download="totei-fah-congratulations-qr.png"><Download size={16}/> บันทึก QR จากการ์ด</a>
     </Modal>}
   </>;
 }

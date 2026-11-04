@@ -146,7 +146,7 @@ p { line-height: 1.95; }
 .gallery-heading h2 { font-size: 49px; margin-top: 16px; max-width: 580px; }
 .gallery-heading > p { font-size: 10px; color: var(--muted); flex-shrink: 0; }
 .gallery-heading > p span { display: inline-flex; align-items: center; gap: 7px; }
-.gallery-grid { display: grid; grid-template-columns: 1.08fr .9fr 1.08fr .9fr; gap: 18px; align-items: center; }
+.gallery-grid { display: grid; grid-template-columns: 1fr 1fr 1.2fr; gap: 18px; align-items: center; }
 .gallery-item { height: 310px; border: none; position: relative; overflow: hidden; padding: 0; background: var(--blue); }
 .gallery-item:nth-child(even) { height: 255px; }
 .gallery-item img { object-fit: cover; transition: transform .6s; }
@@ -228,4 +228,43 @@ p { line-height: 1.95; }
   html { scroll-padding-top: 75px; }.site-header { height: 73px; padding-inline: 24px; }.wordmark { font-size: 39px; }.mobile-menu { display: inline-flex !important; }.main-nav { display: none; position: absolute; top: 72px; left: 0; right: 0; background: var(--cream); padding: 20px 25px 26px; border-bottom: 1px solid var(--line); box-shadow: 0 15px 20px #30121e10; }.main-nav.is-open { display: flex; flex-direction: column; align-items: stretch; gap: 5px; }.main-nav .nav-rsvp { justify-content: center; margin-top: 10px; }.hero { padding: 36px 27px 15px; }.hero-inner { display: flex; flex-direction: column; gap: 58px; }.hero-copy { width: 100%; max-width: 430px; }.hero-eyebrow { font-size: 8px; margin-bottom: 28px; }.name-composition h1 { font-size: 112px; }.hero-floral-left { left: -9px; top: 15px; width: 135px; }.hero-floral-right { right: -6px; width: 110px; top: 95px; }.hero-subtitle { font-size: 27px; margin-top: 23px; }.hero-visual { width: 85%; max-width: 380px; margin-top: 7px; }.hero-photo { height: 370px; }.hero-bow { width: 135px; top: -46px; left: -30px; }.date-stamp { right: -26px; top: 30px; width: 81px; height: 103px; }.date-stamp span { font-size: 15px; }.photo-script { font-size: 30px; }.visual-caption { font-size: 7px; margin-top: 21px; }.scroll-note { margin-top: 21px; font-size: 7px; }.love-strip { gap: 20px; padding: 18px 12px; }.love-strip span { font-size: 19px; }.love-strip span:last-of-type, .love-strip svg:last-child { display: none; }.love-strip svg { width: 18px; height: 18px; }.section-space { padding: 77px 27px; }.story-section { grid-template-columns: 1fr; gap: 78px; padding-top: 89px; }.story-picture { width: 82%; max-width: 355px; margin: auto; }.story-photo { height: 330px; }.story-copy { text-align: center; }.story-copy .tiny-flower { margin-inline: auto; }.story-copy h2 { font-size: 48px; }.story-copy p:not(.eyebrow):not(.story-signature) { font-size: 11px; }.celebration-section { padding-top: 10px; }.section-heading { margin-bottom: 36px; }.section-heading h2 { font-size: 43px; }.section-heading .eyebrow { font-size: 9px; }.section-heading > p:last-child { font-size: 11px; }.celebration-details { grid-template-columns: 1fr; }.event-date { border-right: none; border-bottom: 1px solid var(--line); padding: 34px 16px; }.calendar-date strong { font-size: 91px; }.event-invitation { padding: 30px 20px; }.countdown { gap: 28px; }.countdown > div { min-width: 48px; }.countdown span { font-size: 43px; }.countdown > div:not(:last-child)::after { right: -17px; }.countdown-wrapper .eyebrow { font-size: 7px; letter-spacing: 1.9px; }.schedule-heading { margin-top: 67px; }.schedule-heading h3 { font-size: 30px; }.schedule-grid { grid-template-columns: 1fr 1fr; gap: 38px 10px; }.schedule-grid::before { display: none; }.schedule-item h4 { font-size: 22px; }.schedule-dot { margin-bottom: 16px; }.schedule-item p { font-size: 9px; }.schedule-number { margin-top: 10px; }.dress-section { grid-template-columns: 1fr; text-align: center; gap: 29px; padding: 56px 27px 47px; }.dress-heading { padding-left: 0; }.dress-heading h2 { font-size: 47px; }.dress-heading .eyebrow { margin-bottom: 14px; }.dress-ornament { width: 125px; left: -30px; top: -9px; }.dress-details > p { font-size: 10px; }.swatches { justify-content: center; gap: 23px; }.swatches span { width: 47px; height: 47px; margin-inline: auto; }.swatches small { font-size: 6px; letter-spacing: .8px; }.gallery-heading { display: block; text-align: center; }.gallery-heading h2 { font-size: 42px; margin-top: 15px; }.gallery-heading .eyebrow { font-size: 8px; }.gallery-heading > p { margin-top: 18px; }.gallery-grid { grid-template-columns: 1fr 1fr; gap: 15px; }.gallery-item { height: 240px; }.gallery-item:nth-child(even) { height: 207px; }.gallery-item-3 { margin-top: 5px; }.gallery-caption { font-size: 7px; padding-inline: 7px; }.gallery-caption span { max-width: 115px; }.gallery-bottom { font-size: 23px; }.venue-section { grid-template-columns: 1fr; gap: 42px; padding: 0 27px 73px; }.venue-illustration { max-width: 390px; margin: auto; width: 100%; }.venue-art-frame { padding: 32px 20px 26px; }.venue-copy { text-align: center; }.venue-copy h2 { font-size: 48px; }.venue-copy .eyebrow { margin-bottom: 17px; }.rsvp-section { padding: 67px 25px 47px; }.rsvp-copy .eyebrow { font-size: 8px; letter-spacing: 1.6px; }.rsvp-copy h2 { font-size: 49px; max-width: 310px; margin-inline: auto; }.rsvp-copy > p:not(.eyebrow) { font-size: 11px; }.rsvp-floral { width: 145px; top: 140px; opacity: .19; }.rsvp-floral-left { left: -66px; }.rsvp-floral-right { right: -66px; }.rsvp-copy .rsvp-note { font-size: 8px !important; }.site-footer { padding: 27px 24px 85px; flex-wrap: wrap; gap: 20px; }.site-footer > p { font-size: 19px; text-align: right; }.footer-note { width: 100%; justify-content: center; font-size: 8px; }.music-widget { right: 16px; bottom: 16px; gap: 5px; }.music-widget > span { font-size: 14px; }.modal { padding: 45px 24px 30px; }.invitation-content h2 { font-size: 49px; }.envelope-scene { padding-top: 25px; }.envelope { height: 185px; margin-top: 35px; }.envelope-name { font-size: 20px; bottom: 9px; }.rsvp-form h2 { font-size: 40px; }.attendance-options label { padding-inline: 8px; font-size: 10px; }.rsvp-success h2 { font-size: 40px; }
 }
 @media (max-width: 370px) { .name-composition h1 { font-size: 98px; }.hero-floral-left { width: 110px; }.hero-floral-right { width: 95px; }.hero-photo { height: 315px; }.hero-eyebrow { letter-spacing: 1.8px; }.swatches { gap: 16px; }.swatches span { width: 43px; }.gallery-item { height: 210px; }.gallery-item:nth-child(even) { height: 180px; }.section-space { padding-inline: 22px; }.rsvp-copy h2 { font-size: 43px; } }
+.family-hosts { display: grid; grid-template-columns: 1fr 45px 1fr; align-items: center; gap: 15px; text-align: center; max-width: 700px; margin: 0 auto 36px; }
+.family-hosts .eyebrow { font-size: 8px; margin-bottom: 12px; color: var(--muted); }
+.family-hosts p:not(.eyebrow) { font-size: 14px; line-height: 1.85; }
+.family-and { font-family: var(--font-serif); font-size: 36px; font-style: italic; }
+.ceremony-couple { display: flex; justify-content: center; align-items: center; gap: 20px; margin: 18px 0 12px; }
+.ceremony-couple > div { min-width: 0; }
+.ceremony-couple strong { display: block; font-family: var(--font-serif); font-weight: 400; font-size: 34px; line-height: 1.1; }
+.ceremony-couple span { display: block; font-size: 11px; line-height: 1.75; margin-top: 8px; }
+.ceremony-couple > em { font-family: var(--font-serif); font-size: 25px; }
+.invitation-full-names { margin-top: 20px; color: var(--muted); }
+.venue-art-frame > span { font-family: var(--font-sans); font-size: 23px; font-style: normal; }
+.venue-copy .venue-name { font-family: var(--font-sans); font-size: 23px !important; }
+.venue-address { max-width: 350px; font-size: 13px !important; }
+.venue-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 23px; }
+.button-outline { border-color: var(--wine); background: transparent; color: var(--wine); }
+.button-outline:hover { background: #721c350b; }
+.venue-map-qr { display: flex; align-items: center; gap: 14px; margin-top: 23px; width: fit-content; }
+.venue-map-qr img { width: 82px; height: auto; flex-shrink: 0; }
+.venue-map-qr span { font-size: 11px; line-height: 1.8; text-align: left; }
+.venue-map-qr small { display: block; font-size: 10px; color: var(--muted); }
+.congratulations-modal { text-align: center; }
+.congratulations-modal h2 { font-family: var(--font-sans); font-size: 28px; letter-spacing: 0; line-height: 1.5; margin: 22px 0 15px; }
+.congratulations-modal > p:not(.eyebrow) { font-size: 12px; color: var(--muted); }
+.congratulations-qr { display: block; max-width: 100%; height: auto; margin: 23px auto; }
+.modal { overscroll-behavior: contain; }
+@media (max-width: 700px) {
+  .family-hosts { grid-template-columns: 1fr 18px 1fr; gap: 7px; margin-bottom: 28px; }
+  .family-hosts p:not(.eyebrow) { font-size: 11px; }
+  .family-hosts .eyebrow { font-size: 6px; letter-spacing: 1.3px; }
+  .family-and { font-size: 28px; }
+  .ceremony-couple { gap: 12px; }
+  .ceremony-couple span { font-size: 10px; }
+  .gallery-item-3 { grid-column: 1 / -1; height: 230px; }
+  .venue-address { margin-inline: auto; }
+  .venue-actions { justify-content: center; }
+  .venue-map-qr { margin-inline: auto; }
+  .venue-copy .venue-name { font-size: 24px !important; }
+  .congratulations-modal h2 { font-size: 25px; }
+}
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; } }

@@ -6,15 +6,15 @@ import "@fontsource/dm-sans/400.css";
 import "@fontsource/dm-sans/500.css";
 import "@fontsource/noto-sans-thai/400.css";
 import "./globals.css";
-import { wedding } from "@/lib/wedding";
+import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 
 export const metadata: Metadata = {
-  title: `${wedding.bride} & ${wedding.groom} | We're getting married`,
-  description: `การ์ดแต่งงานตัวอย่างโทนแดงไวน์และฟ้าอ่อน — ${wedding.bride} & ${wedding.groom} · ${wedding.thaiDateLabel}`,
+  title: `${weddingIdentity.names} | We're getting married`,
+  description: `ขอเชิญร่วมพิธีมงคลสมรส ${weddingIdentity.names} · ${wedding.thaiDateLabel} · ${wedding.venueThai} ${wedding.venueAddress}`,
   metadataBase: new URL("https://anne-pop-wedding-131026.techanamaster.chatgpt.site"),
   openGraph: {
-    title: `${wedding.bride} & ${wedding.groom} — A day to remember`,
-    description: "Together with our families, we invite you to celebrate our love. การ์ดเชิญตัวอย่าง",
+    title: `${weddingIdentity.names} — A day to remember`,
+    description: `${wedding.thaiDateLabel} เวลา ${weddingDate.time} น. · ${wedding.venueThai} ${wedding.venueAddress}`,
     images: [wedding.photos.hero],
     locale: "th_TH",
     type: "website",

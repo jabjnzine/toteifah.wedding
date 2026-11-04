@@ -4,7 +4,7 @@ import { useEffect, useRef, useState, type FormEvent, type ReactNode } from "rea
 import Image from "next/image";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowDown, ArrowLeft, ArrowRight, CalendarPlus, Check, Download, Heart, Mail, Menu, Music2, VolumeX, X } from "lucide-react";
+import { ArrowDown, ArrowLeft, ArrowRight, CalendarPlus, Check, Download, Heart, Mail, Music2, VolumeX, X } from "lucide-react";
 import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 import { RibbonBow, TinyFlower } from "./ornaments";
 
@@ -26,18 +26,6 @@ export function WeddingMotion() {
     return () => { media.revert(); window.removeEventListener("load", refresh); };
   }, []);
   return null;
-}
-
-export function Navigation() {
-  const [isOpen, setIsOpen] = useState(false);
-  return <header className="site-header">
-    <a className="wordmark" href="#home" aria-label={`${weddingIdentity.names} หน้าแรก`}>{weddingIdentity.firstInitial}<span>&</span>{weddingIdentity.secondInitial}<span className="wordmark-dot">.</span></a>
-    <nav aria-label="เมนูหลัก" className={isOpen ? "main-nav is-open" : "main-nav"}>
-      {[ ["Our story", "story"], ["The celebration", "celebration"], ["Our moments", "gallery"] ].map(([label, id]) => <a key={id} href={`#${id}`} onClick={() => setIsOpen(false)}>{label}</a>)}
-      <a href="#rsvp" className="nav-rsvp" onClick={() => setIsOpen(false)}>RSVP <ArrowRight size={14} /></a>
-    </nav>
-    <button className="mobile-menu icon-button" aria-label={isOpen ? "ปิดเมนู" : "เปิดเมนู"} aria-expanded={isOpen} onClick={() => setIsOpen(!isOpen)}>{isOpen ? <X size={22} /> : <Menu size={22} />}</button>
-  </header>;
 }
 
 export function Countdown() {

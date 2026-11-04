@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { ArrowDown, ArrowRight, Flower2, Heart, MapPin, Utensils } from "lucide-react";
 import { FloralSprig, RibbonBow, TinyFlower } from "@/components/ornaments";
-import { CalendarButton, CongratulationsButton, Countdown, Gallery, InvitationButton, MusicButton, Navigation, RsvpButton, WeddingMotion } from "@/components/wedding-interactions";
+import { CalendarButton, CongratulationsButton, Countdown, Gallery, InvitationButton, MusicButton, RsvpButton, WeddingMotion } from "@/components/wedding-interactions";
 import { wedding, weddingDate, weddingIdentity } from "@/lib/wedding";
 
 function RingsIcon() {
@@ -12,7 +12,6 @@ export default function WeddingPage() {
   return <>
     <WeddingMotion/>
     <a className="skip-link" href="#main">ข้ามไปยังเนื้อหา</a>
-    <Navigation/>
     <main id="main">
       <section className="hero" id="home" aria-labelledby="hero-title">
         <div className="hero-inner">
